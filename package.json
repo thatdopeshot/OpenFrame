@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "bun run typecheck",
     "build": "next build",
     "start": "next start",
     "start:docker": "sh ./scripts/docker-entrypoint.sh",
