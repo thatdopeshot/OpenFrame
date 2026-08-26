@@ -20,6 +20,12 @@ function createPool(connectionString: string): Pool {
 
   const poolConfig: PoolConfig = {
     connectionString,
+    // Prisma's model mapping honours the adapter's `schema`, but $queryRaw does
+    // not: raw SQL resolves against the connection's search_path, which defaults
+    // to `public`. On a shared database that made every raw query fail with
+    // 42P01 (rate limiting silently degraded to "off"). Pin the search_path so
+    // raw and mapped queries agree on where the tables live.
+    ...(dbSchema ? { options: `-c search_path=${dbSchema},public` } : {}),
     max: 20, // Maximum number of connections
     idleTimeoutMillis: 30000, // Close idle connections after 30 seconds
     connectionTimeoutMillis: 5000, // Return error after 5 seconds if can't connect
