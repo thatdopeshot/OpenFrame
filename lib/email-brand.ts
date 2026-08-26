@@ -1,9 +1,9 @@
 export const EMAIL_COLORS = {
-  bg: '#171717',
+  bg: '#0a0a0a',
   card: '#252525',
   cardInner: '#2f2f2f',
   border: '#3a3a3a',
-  accent: '#7aa7ff',
+  accent: '#d8232f',
   accentDark: '#243656',
   text: '#f5f5f5',
   textSecondary: '#c6c6cc',
@@ -12,8 +12,8 @@ export const EMAIL_COLORS = {
 
 function brandLogoSvg(): string {
   return `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;pointer-events:none;">
-    <rect x="2" y="6" width="14" height="12" rx="2" stroke="${EMAIL_COLORS.accent}" stroke-width="2" />
-    <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" stroke="${EMAIL_COLORS.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="12" cy="12" r="9" stroke="${EMAIL_COLORS.accent}" stroke-width="2" fill="none" />
+    <path d="M12 3v7.5M20.8 8.2l-6.5 3.8M20.8 15.8l-6.5-3.8M12 21v-7.5M3.2 15.8l6.5-3.8M3.2 8.2l6.5 3.8" stroke="${EMAIL_COLORS.accent}" stroke-width="2" stroke-linecap="round" fill="none" />
   </svg>`;
 }
 
@@ -83,7 +83,7 @@ export function brandedEmailTemplate(
         <tr><td style="padding:0 0 24px;">
           <table cellpadding="0" cellspacing="0"><tr>
             <td style="padding-right:10px;vertical-align:middle;">${brandLogoSvg()}</td>
-            <td style="vertical-align:middle;font-size:16px;font-weight:700;color:${EMAIL_COLORS.text};letter-spacing:0.08em;">OpenFrame</td>
+            <td style="vertical-align:middle;font-size:16px;font-weight:700;color:${EMAIL_COLORS.text};letter-spacing:0.08em;">THAT DOPE SHOT</td>
           </tr></table>
         </td></tr>
 

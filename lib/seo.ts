@@ -1,4 +1,4 @@
-const FALLBACK_SITE_URL = 'https://open-frame.net';
+const FALLBACK_SITE_URL = 'https://review.thatdopeshot.com';
 
 function normalizeSiteUrl(rawUrl: string | undefined): string {
   if (!rawUrl) {
@@ -25,22 +25,21 @@ export function getSiteUrl(): string {
 }
 
 export const seoConfig = {
-  name: 'OpenFrame',
-  title: 'Fair Source Video Review Platform',
+  name: 'That Dope Shot',
+  title: 'Client Review Portal',
   description:
-    'OpenFrame is a fair source video review platform for collecting timestamped feedback with text and voice comments.',
+    'Review and download your photos and video from That Dope Shot. Leave feedback right on the frame.',
   keywords: [
-    'fair source video review platform',
-    'video review platform',
-    'video review tool',
-    'timestamped video feedback',
-    'video collaboration',
-    'video annotation',
-    'creative review workflow',
+    'that dope shot',
+    'client review portal',
+    'video review',
+    'photo and video delivery',
+    'branding photography',
+    'washington dc photographer',
   ],
   url: getSiteUrl(),
   ogImage: '/meta.webp',
   logoPath: '/icon.svg',
   logo: '/icon.svg?v=2',
-  githubUrl: 'https://github.com/yusufipk/OpenFrame',
+  githubUrl: 'https://thatdopeshot.com',
 } as const;

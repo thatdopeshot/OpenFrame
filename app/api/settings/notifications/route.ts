@@ -191,13 +191,13 @@ export async function POST(request: NextRequest) {
       });
 
       const fromAddress =
-        process.env.SMTP_FROM || process.env.EMAIL_FROM || 'OpenFrame <info@open-frame.net>';
+        process.env.SMTP_FROM || process.env.EMAIL_FROM || 'That Dope Shot <mike@dopeshotuniversity.com>';
 
       try {
         await transporter.sendMail({
           from: fromAddress,
           to: user.email,
-          subject: '[OpenFrame] Test notification',
+          subject: '[That Dope Shot] Test notification',
           html: testEmailHtml(),
         });
       } catch (emailErr) {

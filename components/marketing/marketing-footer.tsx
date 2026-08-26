@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Video } from 'lucide-react';
 import { seoConfig } from '@/lib/seo';
-import { MarketingCompareLinks } from '@/components/marketing/marketing-compare-links';
 
 export function MarketingFooter() {
   return (
@@ -18,17 +17,16 @@ export function MarketingFooter() {
             </span>
           </div>
         </div>
-        <MarketingCompareLinks />
         <div className="flex flex-col gap-2">
           <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
             Legal
           </span>
           <div className="flex flex-col gap-1.5">
             <a
-              href="mailto:info@open-frame.net"
+              href="mailto:mike@dopeshotuniversity.com"
               className="text-xs text-muted-foreground hover:text-foreground"
             >
-              info@open-frame.net
+              mike@dopeshotuniversity.com
             </a>
             <a
               href={seoConfig.githubUrl}
@@ -36,15 +34,6 @@ export function MarketingFooter() {
             >
               GitHub
             </a>
-            <Link href="/terms" className="text-xs text-muted-foreground hover:text-foreground">
-              Terms
-            </Link>
-            <Link href="/privacy" className="text-xs text-muted-foreground hover:text-foreground">
-              Privacy
-            </Link>
-            <Link href="/refund" className="text-xs text-muted-foreground hover:text-foreground">
-              Refund Policy
-            </Link>
           </div>
         </div>
       </div>

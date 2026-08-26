@@ -51,6 +51,11 @@ function createPool(connectionString: string): Pool {
   return pool;
 }
 
+// The pg driver adapter ignores the `?schema=` URL param (that is a Prisma-native
+// URL convention). On a shared database (our DSU Supabase) the tables live in the
+// `openframe` schema, so the schema has to be passed to the adapter explicitly.
+const dbSchema = process.env.DATABASE_SCHEMA;
+
 function createPrismaClient() {
   // In development without a database, we'll create a mock-friendly client
   // For production or when DATABASE_URL is set, use the real adapter
@@ -62,12 +67,12 @@ function createPrismaClient() {
     const pool = createPool('postgresql://localhost:5432/dummy');
     return new PrismaClient({
       // This will fail on actual DB operations but allows imports to work
-      adapter: new PrismaPg(pool),
+      adapter: new PrismaPg(pool, dbSchema ? { schema: dbSchema } : undefined),
     });
   }
 
   const pool = createPool(connectionString);
-  const adapter = new PrismaPg(pool);
+  const adapter = new PrismaPg(pool, dbSchema ? { schema: dbSchema } : undefined);
 
   return new PrismaClient({
     adapter,

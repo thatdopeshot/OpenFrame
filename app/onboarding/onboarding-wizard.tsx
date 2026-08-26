@@ -153,7 +153,7 @@ function StepWelcome({
       </div>
       <div className="space-y-3">
         <h2 className="text-3xl font-bold tracking-tight">
-          Welcome to OpenFrame, {userName.split(' ')[0]}!
+          Welcome to That Dope Shot, {userName.split(' ')[0]}!
         </h2>
         <p className="text-base text-muted-foreground max-w-md mx-auto">
           OpenFrame is your collaborative video review platform. Collect timestamped feedback,
