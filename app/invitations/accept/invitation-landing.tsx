@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Video, UserPlus, LogIn, MailWarning } from 'lucide-react';
+import { UserPlus, LogIn, MailWarning } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import type { InvitationPreview } from '@/lib/invitations';
@@ -14,7 +14,6 @@ function Shell({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen flex items-center justify-center p-4 bg-background">
       <div className="w-full max-w-md">
         <Link href="/" className="flex items-center justify-center gap-2 mb-8">
-          <Video className="h-8 w-8 text-primary" />
           <span className="inline-flex items-center justify-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo.png" alt="TDS Media" className="h-14 w-auto dark:hidden" />
