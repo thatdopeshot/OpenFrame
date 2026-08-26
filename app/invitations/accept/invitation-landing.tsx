@@ -15,7 +15,7 @@ function Shell({ children }: { children: React.ReactNode }) {
       <div className="w-full max-w-md">
         <Link href="/" className="flex items-center justify-center gap-2 mb-8">
           <Video className="h-8 w-8 text-primary" />
-          <span className="font-bold text-2xl">OpenFrame</span>
+          <span className="font-bold text-2xl">That Dope Shot</span>
         </Link>
         {children}
       </div>
@@ -141,7 +141,7 @@ export function InvitationLanding({ token, preview }: InvitationLandingProps) {
         <CardHeader className="text-center">
           <CardTitle>You&apos;ve been invited</CardTitle>
           <CardDescription>
-            {preview.inviterName} invited you to join <strong>{targetLabel}</strong> on OpenFrame as{' '}
+            {preview.inviterName} invited you to join <strong>{targetLabel}</strong> on That Dope Shot as{' '}
             {preview.roleLabel}.
           </CardDescription>
         </CardHeader>
@@ -175,7 +175,7 @@ export function InvitationLanding({ token, preview }: InvitationLandingProps) {
           ) : (
             <>
               <p className="text-sm text-muted-foreground">
-                You don&apos;t have an OpenFrame account yet. Create one to open this{' '}
+                You don&apos;t have a That Dope Shot account yet. Create one to open this{' '}
                 {preview.scopeLabel} — we&apos;ll bring you right back here once you&apos;re signed
                 in.
               </p>

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 import {
-  Video,
   FolderOpen,
   Building2,
   Settings,
@@ -147,8 +146,10 @@ export function Header({ user, showAppNavigation = false }: HeaderProps) {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 mr-6">
-          <Video className="h-6 w-6 text-primary" />
-          <span className="font-bold text-lg hidden sm:inline-block">OpenFrame</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="That Dope Shot" className="h-8 w-auto dark:hidden" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo-white.png" alt="That Dope Shot" className="h-8 w-auto hidden dark:block" />
         </Link>
 
         {/* Desktop nav */}

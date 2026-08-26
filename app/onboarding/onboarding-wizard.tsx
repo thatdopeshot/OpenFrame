@@ -156,7 +156,7 @@ function StepWelcome({
           Welcome to That Dope Shot, {userName.split(' ')[0]}!
         </h2>
         <p className="text-base text-muted-foreground max-w-md mx-auto">
-          OpenFrame is your collaborative video review platform. Collect timestamped feedback,
+          That Dope Shot is your review portal. Collect timestamped feedback,
           manage versions, and streamline approvals — all in one place.
         </p>
       </div>
@@ -589,7 +589,7 @@ function StepVideo({ onNext }: { onNext: () => void }) {
         </div>
         <h2 className="text-2xl font-bold tracking-tight">Adding videos</h2>
         <p className="text-base text-muted-foreground">
-          OpenFrame supports two ways to add video content to your projects.
+          That Dope Shot supports two ways to add video content to your projects.
         </p>
       </div>
 
@@ -600,7 +600,7 @@ function StepVideo({ onNext }: { onNext: () => void }) {
             YouTube link
           </div>
           <p className="text-sm text-muted-foreground">
-            Paste a link to any YouTube video. OpenFrame will pull in the title, thumbnail, and
+            Paste a link to any YouTube video. We will pull in the title, thumbnail, and
             duration automatically — no file upload needed.
           </p>
         </div>

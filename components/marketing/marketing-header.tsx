@@ -21,7 +21,7 @@ export function MarketingHeader({ isLoggedIn }: MarketingHeaderProps) {
         >
           <span className="pointer-events-none absolute inset-0 -translate-x-[101%] bg-primary/10 transition-transform duration-300 group-hover:translate-x-0" />
           <Video className="relative z-10 h-4 w-4 text-primary" />
-          <span className="relative z-10 text-xs font-semibold tracking-[0.12em]">OPENFRAME</span>
+          <span className="relative z-10 text-xs font-semibold tracking-[0.12em]">THAT DOPE SHOT</span>
         </Link>
 
         <nav className="hidden items-center gap-6 text-[11px] font-medium uppercase tracking-[0.14em] md:flex">

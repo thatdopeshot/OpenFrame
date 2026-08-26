@@ -12,7 +12,7 @@ import { isProductAnalyticsEnabled } from '@/lib/feature-flags';
 import { AlertTriangle, CreditCard, TrendingUp, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Growth | OpenFrame',
+  title: 'Growth | That Dope Shot',
   description: 'Acquisition funnel and retention scoreboard',
 };
 

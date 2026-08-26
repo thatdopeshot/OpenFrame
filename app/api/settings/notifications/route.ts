@@ -137,7 +137,7 @@ export async function POST(request: NextRequest) {
       const settingsUrl = `${process.env.NEXTAUTH_URL || ''}/settings`;
       const telegramPayload: Record<string, unknown> = {
         chat_id: telegramChatId,
-        text: '✅ OpenFrame notifications connected successfully!\n\nYou will receive notifications here when activity happens on your projects.',
+        text: '✅ That Dope Shot notifications connected successfully!\n\nYou will receive notifications here when activity happens on your projects.',
         link_preview_options: { is_disabled: true },
       };
       // Telegram inline keyboard buttons require HTTPS URLs

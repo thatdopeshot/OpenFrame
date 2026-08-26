@@ -20,7 +20,7 @@ test('an anonymous visitor to a protected route lands on the login page', async 
 test('registration is refused when the invite code is wrong', async ({ page }) => {
   await page.goto('/register');
 
-  await expect(page.getByText('Join OpenFrame to collaborate on video projects')).toBeVisible();
+  await expect(page.getByText('Sign in to review and download your project files')).toBeVisible();
 
   await page.getByLabel('Invite Code').fill('definitely-not-the-invite-code');
   await page.getByLabel('Full Name').fill('Wrong Code Person');
