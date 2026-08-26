@@ -147,9 +147,9 @@ export function Header({ user, showAppNavigation = false }: HeaderProps) {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 mr-6">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="That Dope Shot" className="h-8 w-auto dark:hidden" />
+          <img src="/logo.png" alt="TDS Media" className="h-8 w-auto dark:hidden" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo-white.png" alt="That Dope Shot" className="h-8 w-auto hidden dark:block" />
+          <img src="/logo-white.png" alt="TDS Media" className="h-8 w-auto hidden dark:block" />
         </Link>
 
         {/* Desktop nav */}

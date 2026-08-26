@@ -8,7 +8,7 @@ interface LandingPageProps {
 }
 
 /**
- * That Dope Shot client portal front door.
+ * TDS Media client portal front door.
  *
  * This replaced OpenFrame's marketing site wholesale. Clients arrive here only
  * when they hit the bare domain instead of a share link, so the job is to say
@@ -22,7 +22,7 @@ export function LandingPage({ isLoggedIn }: LandingPageProps) {
         <div className="w-full max-w-md text-center">
           <Image
             src="/logo.png"
-            alt="That Dope Shot"
+            alt="TDS Media"
             width={520}
             height={140}
             priority
@@ -30,7 +30,7 @@ export function LandingPage({ isLoggedIn }: LandingPageProps) {
           />
           <Image
             src="/logo-white.png"
-            alt="That Dope Shot"
+            alt="TDS Media"
             width={520}
             height={140}
             priority
@@ -67,7 +67,7 @@ export function LandingPage({ isLoggedIn }: LandingPageProps) {
 
       <footer className="border-t border-border py-6 px-6">
         <p className="text-xs text-muted-foreground text-center">
-          &copy; {new Date().getFullYear()} That Dope Shot &middot;{' '}
+          &copy; {new Date().getFullYear()} TDS Media &middot;{' '}
           <a href="https://thatdopeshot.com" className="hover:text-foreground">
             thatdopeshot.com
           </a>

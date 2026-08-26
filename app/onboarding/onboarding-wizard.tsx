@@ -153,10 +153,10 @@ function StepWelcome({
       </div>
       <div className="space-y-3">
         <h2 className="text-3xl font-bold tracking-tight">
-          Welcome to That Dope Shot, {userName.split(' ')[0]}!
+          Welcome to TDS Media, {userName.split(' ')[0]}!
         </h2>
         <p className="text-base text-muted-foreground max-w-md mx-auto">
-          That Dope Shot is your review portal. Collect timestamped feedback,
+          TDS Media is your review portal. Collect timestamped feedback,
           manage versions, and streamline approvals — all in one place.
         </p>
       </div>
@@ -589,7 +589,7 @@ function StepVideo({ onNext }: { onNext: () => void }) {
         </div>
         <h2 className="text-2xl font-bold tracking-tight">Adding videos</h2>
         <p className="text-base text-muted-foreground">
-          That Dope Shot supports two ways to add video content to your projects.
+          TDS Media supports two ways to add video content to your projects.
         </p>
       </div>
 

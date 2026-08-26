@@ -15,7 +15,12 @@ function Shell({ children }: { children: React.ReactNode }) {
       <div className="w-full max-w-md">
         <Link href="/" className="flex items-center justify-center gap-2 mb-8">
           <Video className="h-8 w-8 text-primary" />
-          <span className="font-bold text-2xl">That Dope Shot</span>
+          <span className="inline-flex items-center justify-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.png" alt="TDS Media" className="h-14 w-auto dark:hidden" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo-white.png" alt="TDS Media" className="h-14 w-auto hidden dark:block" />
+          </span>
         </Link>
         {children}
       </div>
@@ -141,7 +146,7 @@ export function InvitationLanding({ token, preview }: InvitationLandingProps) {
         <CardHeader className="text-center">
           <CardTitle>You&apos;ve been invited</CardTitle>
           <CardDescription>
-            {preview.inviterName} invited you to join <strong>{targetLabel}</strong> on That Dope Shot as{' '}
+            {preview.inviterName} invited you to join <strong>{targetLabel}</strong> on TDS Media as{' '}
             {preview.roleLabel}.
           </CardDescription>
         </CardHeader>
@@ -175,7 +180,7 @@ export function InvitationLanding({ token, preview }: InvitationLandingProps) {
           ) : (
             <>
               <p className="text-sm text-muted-foreground">
-                You don&apos;t have a That Dope Shot account yet. Create one to open this{' '}
+                You don&apos;t have a TDS Media account yet. Create one to open this{' '}
                 {preview.scopeLabel} — we&apos;ll bring you right back here once you&apos;re signed
                 in.
               </p>

@@ -67,8 +67,8 @@ export async function sendInvitationEmail(input: {
   }
 
   const fromAddress =
-    process.env.SMTP_FROM || process.env.EMAIL_FROM || 'That Dope Shot <mike@dopeshotuniversity.com>';
-  const subject = `[That Dope Shot] You were invited to a ${scopeLabel(input.scope)}: ${input.targetName}`;
+    process.env.SMTP_FROM || process.env.EMAIL_FROM || 'TDS Media <mike@dopeshotuniversity.com>';
+  const subject = `[TDS Media] You were invited to a ${scopeLabel(input.scope)}: ${input.targetName}`;
   const html = invitationEmailTemplate({
     inviterName: input.inviterName,
     role: roleLabel(input.role),
@@ -102,7 +102,7 @@ function invitationEmailTemplate(input: {
     `
       <tr>${emailHeading('✓', `${input.scope.charAt(0).toUpperCase() + input.scope.slice(1)} Invitation`)}</tr>
       <tr><td style="padding:20px;">
-        ${emailHighlight('You were invited to join That Dope Shot.')}
+        ${emailHighlight('You were invited to join TDS Media.')}
         <table cellpadding="0" cellspacing="0" style="width:100%;margin-bottom:16px;">
           ${emailRow('Invited by', input.inviterName, true)}
           ${emailRow('Target', `${input.targetName} (${input.scope})`, true)}

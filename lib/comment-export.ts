@@ -235,7 +235,7 @@ export function buildCommentsPdf(
     ? `v${meta.versionNumber} (${meta.versionLabel})`
     : `v${meta.versionNumber}`;
 
-  lines.push(`That Dope Shot Comments Export`);
+  lines.push(`TDS Media Comments Export`);
   lines.push(`Video: ${meta.videoTitle}`);
   lines.push(`Version: ${versionTitle}`);
   lines.push(`Generated At: ${new Date().toISOString()}`);

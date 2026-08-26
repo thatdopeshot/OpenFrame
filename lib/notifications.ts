@@ -85,7 +85,7 @@ function createSmtpTransport() {
 async function sendEmail(to: string, subject: string, html: string): Promise<boolean> {
   const transporter = createSmtpTransport();
   const fromAddress =
-    process.env.SMTP_FROM || process.env.EMAIL_FROM || 'That Dope Shot <mike@dopeshotuniversity.com>';
+    process.env.SMTP_FROM || process.env.EMAIL_FROM || 'TDS Media <mike@dopeshotuniversity.com>';
 
   if (!transporter) {
     console.warn('SMTP not configured — skipping email notification');
@@ -310,7 +310,7 @@ function formatEmail(
   switch (event.type) {
     case 'new_video':
       return {
-        subject: `[That Dope Shot] New video in ${event.projectName}: ${event.videoTitle}`,
+        subject: `[TDS Media] New video in ${event.projectName}: ${event.videoTitle}`,
         html: emailTemplate(`
                     <tr>${emailHeading('▶', 'New Video Added')}</tr>
                     <tr><td style="padding:20px;">
@@ -326,7 +326,7 @@ function formatEmail(
       };
     case 'new_version':
       return {
-        subject: `[That Dope Shot] New version of ${event.videoTitle} in ${event.projectName}`,
+        subject: `[TDS Media] New version of ${event.videoTitle} in ${event.projectName}`,
         html: emailTemplate(`
                     <tr>${emailHeading('▶', 'New Version Added')}</tr>
                     <tr><td style="padding:20px;">
@@ -343,7 +343,7 @@ function formatEmail(
       };
     case 'new_comment':
       return {
-        subject: `[That Dope Shot] New comment on ${event.videoTitle}`,
+        subject: `[TDS Media] New comment on ${event.videoTitle}`,
         html: emailTemplate(`
                     <tr>${emailHeading('●', 'New Comment')}</tr>
                     <tr><td style="padding:20px;">
@@ -363,7 +363,7 @@ function formatEmail(
       };
     case 'new_reply':
       return {
-        subject: `[That Dope Shot] ${event.replyAuthor} replied on ${event.videoTitle}`,
+        subject: `[TDS Media] ${event.replyAuthor} replied on ${event.videoTitle}`,
         html: emailTemplate(`
                     <tr>${emailHeading('↵', 'New Reply')}</tr>
                     <tr><td style="padding:20px;">
@@ -382,7 +382,7 @@ function formatEmail(
       };
     case 'approval_requested':
       return {
-        subject: `[That Dope Shot] Approval requested for ${event.versionLabel} in ${event.projectName}`,
+        subject: `[TDS Media] Approval requested for ${event.versionLabel} in ${event.projectName}`,
         html: emailTemplate(`
                     <tr>${emailHeading('✓', 'Approval Requested')}</tr>
                     <tr><td style="padding:20px;">
@@ -401,7 +401,7 @@ function formatEmail(
       };
     case 'approval_action':
       return {
-        subject: `[That Dope Shot] Approval ${event.action} by ${event.actorName}`,
+        subject: `[TDS Media] Approval ${event.action} by ${event.actorName}`,
         html: emailTemplate(`
                     <tr>${emailHeading('✓', 'Approval Update')}</tr>
                     <tr><td style="padding:20px;">
@@ -420,7 +420,7 @@ function formatEmail(
       };
     case 'approval_completed':
       return {
-        subject: `[That Dope Shot] Approval completed for ${event.versionLabel}`,
+        subject: `[TDS Media] Approval completed for ${event.versionLabel}`,
         html: emailTemplate(`
                     <tr>${emailHeading('✓', 'Approval Completed')}</tr>
                     <tr><td style="padding:20px;">
@@ -438,7 +438,7 @@ function formatEmail(
       };
     case 'approval_rejected':
       return {
-        subject: `[That Dope Shot] Approval rejected by ${event.rejectedBy}`,
+        subject: `[TDS Media] Approval rejected by ${event.rejectedBy}`,
         html: emailTemplate(`
                     <tr>${emailHeading('⛔', 'Approval Rejected')}</tr>
                     <tr><td style="padding:20px;">

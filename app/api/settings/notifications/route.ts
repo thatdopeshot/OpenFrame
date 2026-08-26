@@ -137,7 +137,7 @@ export async function POST(request: NextRequest) {
       const settingsUrl = `${process.env.NEXTAUTH_URL || ''}/settings`;
       const telegramPayload: Record<string, unknown> = {
         chat_id: telegramChatId,
-        text: '✅ That Dope Shot notifications connected successfully!\n\nYou will receive notifications here when activity happens on your projects.',
+        text: '✅ TDS Media notifications connected successfully!\n\nYou will receive notifications here when activity happens on your projects.',
         link_preview_options: { is_disabled: true },
       };
       // Telegram inline keyboard buttons require HTTPS URLs
@@ -191,13 +191,13 @@ export async function POST(request: NextRequest) {
       });
 
       const fromAddress =
-        process.env.SMTP_FROM || process.env.EMAIL_FROM || 'That Dope Shot <mike@dopeshotuniversity.com>';
+        process.env.SMTP_FROM || process.env.EMAIL_FROM || 'TDS Media <mike@dopeshotuniversity.com>';
 
       try {
         await transporter.sendMail({
           from: fromAddress,
           to: user.email,
-          subject: '[That Dope Shot] Test notification',
+          subject: '[TDS Media] Test notification',
           html: testEmailHtml(),
         });
       } catch (emailErr) {

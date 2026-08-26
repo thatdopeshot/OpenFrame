@@ -384,7 +384,7 @@ export default function FeedbackPage() {
                       onChange={(event) => setReviewMessage(event.target.value)}
                       minLength={10}
                       maxLength={3000}
-                      placeholder="What has your experience been like using the That Dope Shot portal?"
+                      placeholder="What has your experience been like using the TDS Media portal?"
                       required
                       disabled={isSubmittingReview}
                       rows={6}
@@ -400,7 +400,7 @@ export default function FeedbackPage() {
                       disabled={isSubmittingReview}
                     />
                     <span>
-                      I allow That Dope Shot to potentially showcase this review.
+                      I allow TDS Media to potentially showcase this review.
                     </span>
                   </label>
 

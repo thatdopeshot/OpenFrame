@@ -12,7 +12,7 @@ import { isProductAnalyticsEnabled } from '@/lib/feature-flags';
 import { AlertTriangle, CreditCard, TrendingUp, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Growth | That Dope Shot',
+  title: 'Growth | TDS Media',
   description: 'Acquisition funnel and retention scoreboard',
 };
 

@@ -83,7 +83,7 @@ export function brandedEmailTemplate(
         <tr><td style="padding:0 0 24px;">
           <table cellpadding="0" cellspacing="0"><tr>
             <td style="padding-right:10px;vertical-align:middle;">${brandLogoSvg()}</td>
-            <td style="vertical-align:middle;font-size:16px;font-weight:700;color:${EMAIL_COLORS.text};letter-spacing:0.08em;">THAT DOPE SHOT</td>
+            <td style="vertical-align:middle;font-size:16px;font-weight:700;color:${EMAIL_COLORS.text};letter-spacing:0.08em;">TDS MEDIA</td>
           </tr></table>
         </td></tr>
 

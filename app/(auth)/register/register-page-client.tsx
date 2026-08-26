@@ -152,7 +152,12 @@ export default function RegisterPageClient({
       <div className="w-full max-w-md">
         <Link href="/" className="flex items-center justify-center gap-2 mb-8">
           <Video className="h-8 w-8 text-primary" />
-          <span className="font-bold text-2xl">That Dope Shot</span>
+          <span className="inline-flex items-center justify-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.png" alt="TDS Media" className="h-14 w-auto dark:hidden" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo-white.png" alt="TDS Media" className="h-14 w-auto hidden dark:block" />
+          </span>
         </Link>
 
         <Card>

@@ -162,7 +162,7 @@ export async function sendVerificationEmail(
   // (and from there on the shared project) instead of a generic login page.
   const nextParam = options?.next ? `&next=${encodeURIComponent(options.next)}` : '';
   const verifyUrl = `${baseUrl}/api/auth/verify-email?token=${encodeURIComponent(token)}${nextParam}`;
-  const from = process.env.SMTP_FROM || process.env.EMAIL_FROM || 'That Dope Shot <mike@dopeshotuniversity.com>';
+  const from = process.env.SMTP_FROM || process.env.EMAIL_FROM || 'TDS Media <mike@dopeshotuniversity.com>';
 
   const html = brandedEmailTemplate(
     `
@@ -173,7 +173,7 @@ export async function sendVerificationEmail(
             ${emailRow('Expires in', `${TOKEN_EXPIRY_HOURS} hours`)}
           </table>
           <p style="margin:0 0 20px;font-size:14px;color:${EMAIL_COLORS.textSecondary};line-height:1.6;">
-            Click the button below to verify your email address and activate your That Dope Shot account.
+            Click the button below to verify your email address and activate your TDS Media account.
             If you did not create an account, you can safely ignore this email.
           </p>
           ${emailButton('Verify Email Address  →', verifyUrl)}
@@ -188,7 +188,7 @@ export async function sendVerificationEmail(
     await transporter.sendMail({
       from,
       to: email,
-      subject: 'Verify your That Dope Shot email address',
+      subject: 'Verify your TDS Media email address',
       html,
     });
   } catch (err) {

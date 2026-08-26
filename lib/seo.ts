@@ -25,10 +25,10 @@ export function getSiteUrl(): string {
 }
 
 export const seoConfig = {
-  name: 'That Dope Shot',
+  name: 'TDS Media',
   title: 'Client Review Portal',
   description:
-    'Review and download your photos and video from That Dope Shot. Leave feedback right on the frame.',
+    'Review and download your photos and video from TDS Media. Leave feedback right on the frame.',
   keywords: [
     'that dope shot',
     'client review portal',

@@ -29,7 +29,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Admin Dashboard | That Dope Shot',
+  title: 'Admin Dashboard | TDS Media',
   description: 'Admin overview dashboard',
 };
 

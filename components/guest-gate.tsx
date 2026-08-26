@@ -41,7 +41,7 @@ export function GuestGate({ children }: { children: ReactNode }) {
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
             <User className="h-6 w-6 text-primary" />
           </div>
-          <h1 className="text-xl font-semibold mb-1">Welcome to That Dope Shot</h1>
+          <h1 className="text-xl font-semibold mb-1">Welcome to TDS Media</h1>
           <p className="text-sm text-muted-foreground">
             Enter your name to view and comment on this project
           </p>
