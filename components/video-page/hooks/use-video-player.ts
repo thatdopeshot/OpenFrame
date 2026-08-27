@@ -585,7 +585,18 @@ export function useVideoPlayer({
         } else if (Hls.isSupported()) {
           sourceMode = 'hls';
           usingHlsJs = true;
-          const hls = new Hls();
+          const hls = new Hls({
+            // Keep ABR (startLevel -1) but seed it optimistically instead of
+            // letting it open on its cautious default guess, which made a 4K
+            // source play back soft for the first several seconds. Reviewers
+            // are judging the picture, so that reads as "you sent me a low
+            // quality file". Seeding rather than pinning the top level means a
+            // genuinely slow connection still steps down instead of stalling.
+            // capLevelToPlayerSize off so a small window still fetches 1080p.
+            startLevel: -1,
+            abrEwmaDefaultEstimate: 5_000_000,
+            capLevelToPlayerSize: false,
+          })
           hlsInstance = hls;
           hlsRef.current = hls;
           hls.attachMedia(videoEl);

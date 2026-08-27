@@ -371,7 +371,15 @@ export const BunnyPreviewPlayer = forwardRef<BunnyPreviewPlayerHandle, BunnyPrev
       } else if (Hls.isSupported()) {
         sourceMode = 'hls';
         usingHlsJs = true;
-        const hls = new Hls();
+        const hls = new Hls({
+          // Start on the highest rendition instead of ABR's cautious first
+          // guess. Reviewers judge the picture, so a soft first few seconds
+          // reads as "you delivered low quality". ABR still takes over after
+          // startup and will drop down if the connection cannot hold it.
+          startLevel: -1,
+          abrEwmaDefaultEstimate: 5_000_000,
+          capLevelToPlayerSize: false,
+        })
         hlsInstance = hls;
         hlsRef.current = hls;
         hls.attachMedia(videoEl);
