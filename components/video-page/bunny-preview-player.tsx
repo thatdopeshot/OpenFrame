@@ -372,10 +372,10 @@ export const BunnyPreviewPlayer = forwardRef<BunnyPreviewPlayerHandle, BunnyPrev
         sourceMode = 'hls';
         usingHlsJs = true;
         const hls = new Hls({
-          // Start on the highest rendition instead of ABR's cautious first
-          // guess. Reviewers judge the picture, so a soft first few seconds
-          // reads as "you delivered low quality". ABR still takes over after
-          // startup and will drop down if the connection cannot hold it.
+          // Keep ABR (startLevel -1) but seed it optimistically instead of
+          // letting it open on its cautious default guess, which made a 4K
+          // source play back soft for the first several seconds. Seeding rather
+          // than pinning the top level means a slow connection still steps down.
           startLevel: -1,
           abrEwmaDefaultEstimate: 5_000_000,
           capLevelToPlayerSize: false,
