@@ -275,6 +275,8 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
                   select: {
                     id: true,
                     ownerId: true,
+                    name: true,
+                    slug: true,
                   },
                 },
               },
@@ -397,6 +399,18 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
           estimatedBytes,
         },
       });
+      // Mirror the event into PostHog so downloads show up next to visits.
+      // Server-side on purpose: it cannot be blocked client-side, and this
+      // route is the single choke point every download passes through.
+      capturePosthogDownload({
+        videoTitle: version.video.title,
+        projectName: version.video.project.name,
+        workspaceName: version.video.project.workspace.name,
+        workspaceSlug: version.video.project.workspace.slug,
+        quality: source.sourceType === 'original' ? 'original' : `${source.quality}p`,
+        estimatedBytes: Number(estimatedBytes),
+        downloaderUserId: session?.user?.id ?? null,
+      });
     } catch (egressError) {
       logError('Failed to record download egress event:', egressError);
     }
@@ -406,4 +420,37 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
     logError('Error downloading version:', error);
     return apiErrors.internalError('Failed to download video');
   }
+}
+
+
+const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
+
+/** Fire-and-forget: analytics must never delay or fail a download. */
+function capturePosthogDownload(props: {
+  videoTitle: string;
+  projectName: string;
+  workspaceName: string;
+  workspaceSlug: string;
+  quality: string;
+  estimatedBytes: number;
+  downloaderUserId: string | null;
+}) {
+  if (!POSTHOG_KEY) return;
+  fetch('https://us.i.posthog.com/i/v0/e/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      api_key: POSTHOG_KEY,
+      event: 'video_downloaded',
+      distinct_id: props.downloaderUserId ?? `guest:${props.workspaceSlug}`,
+      properties: {
+        video_title: props.videoTitle,
+        project: props.projectName,
+        client: props.workspaceName,
+        client_hub: props.workspaceSlug,
+        quality: props.quality,
+        estimated_mb: Math.round(props.estimatedBytes / 1e6),
+      },
+    }),
+  }).catch(() => {});
 }

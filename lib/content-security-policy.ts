@@ -62,6 +62,9 @@ export function buildContentSecurityPolicy(): string {
     "'self'",
     'https://video.bunnycdn.com',
     'https://www.youtube.com',
+    // PostHog analytics: event capture + remote config + session replay ingest
+    'https://us.i.posthog.com',
+    'https://us-assets.i.posthog.com',
     cdnOrigin,
     ...resolveR2ConnectOrigins(),
     // Allow Next.js HMR websocket in development
@@ -85,7 +88,7 @@ export function buildContentSecurityPolicy(): string {
     "default-src 'self'",
     // 'unsafe-inline' is required by Next.js App Router (hydration scripts, inline styles)
     // https://www.youtube.com is required for the dynamically-injected YouTube IFrame API script
-    "script-src 'self' 'unsafe-inline' https://www.youtube.com",
+    "script-src 'self' 'unsafe-inline' https://www.youtube.com https://us-assets.i.posthog.com",
     "style-src 'self' 'unsafe-inline'",
     `img-src ${imgSrcParts.join(' ')}`,
     `media-src ${mediaSrcParts.join(' ')}`,

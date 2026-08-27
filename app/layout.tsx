@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist_Mono, JetBrains_Mono } from 'next/font/google';
 import { Toaster } from 'sonner';
 import { ThemeProvider } from '@/components/theme-provider';
+import { AnalyticsProvider } from '@/components/analytics-provider';
 import {
   buildRuntimePublicConfig,
   RUNTIME_PUBLIC_CONFIG_ELEMENT_ID,
@@ -156,6 +157,7 @@ export default function RootLayout({
               />
             </filter>
           </svg>
+          <AnalyticsProvider />
           {children}
           <div aria-hidden="true" className="noise-overlay" />
           <Toaster />
