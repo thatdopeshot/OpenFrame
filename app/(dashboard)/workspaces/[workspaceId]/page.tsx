@@ -17,6 +17,7 @@ import { Badge } from '@/components/ui/badge';
 import { auth, checkWorkspaceAccess } from '@/lib/auth';
 import { db } from '@/lib/db';
 import { VideoDragDropUploader } from '@/components/video-drag-drop-uploader';
+import { ClientHubLinkCard } from '@/components/client-hub-link-card';
 import { isDirectFileUploadEnabled, isS3VideoUploadsEnabled } from '@/lib/feature-flags';
 
 function VisibilityIcon({ visibility }: { visibility: string }) {
@@ -84,6 +85,10 @@ export default async function WorkspacePage({ params, searchParams }: WorkspaceP
       },
       _count: { select: { projects: true, members: true } },
     },
+  });
+
+  const publicProjectCount = await db.project.count({
+    where: { workspaceId, visibility: 'PUBLIC' },
   });
 
   if (!workspace) {
@@ -165,6 +170,8 @@ export default async function WorkspacePage({ params, searchParams }: WorkspaceP
           )}
         </div>
       </div>
+
+      <ClientHubLinkCard slug={workspace.slug} publicProjectCount={publicProjectCount} />
 
       {/* Projects Grid */}
       {workspace.projects.length > 0 ? (
